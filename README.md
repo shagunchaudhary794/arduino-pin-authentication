@@ -1,82 +1,69 @@
-# Arduino PIN Authentication & Access Control
+# Arduino PIN Authentication System
 
-A simulated embedded cybersecurity project implementing PIN-based authentication using an Arduino Uno R3, a 4×4 matrix keypad, and LED indicators.
+My first circuit simulation project exploring the intersection of embedded systems and cybersecurity.
 
-## Overview
+## About the Project
 
-This project demonstrates how an embedded system can validate user input, grant or deny access, and temporarily restrict repeated failed authentication attempts.
+This project is a simple PIN-based authentication and access-control system built using an Arduino Uno R3 and simulated in Tinkercad Circuits.
 
-**Platform:** Tinkercad Circuits  
-**Microcontroller:** Arduino Uno R3 (ATmega328P)  
-**Language:** Arduino C/C++  
-**Interface:** 4×4 matrix keypad  
-**Output:** Red and green LEDs  
-**Serial communication:** 9600 baud
+The system uses a 4×4 matrix keypad to accept a PIN, verifies the entered value through Arduino firmware, and uses red and green LEDs to indicate whether access is denied or granted.
+
+This is my first circuit simulation project, and I'm using it as an opportunity to explore hardware, embedded programming, and basic cybersecurity concepts.
 
 ## Features
 
-- PIN-based access verification
-- Matrix keypad scanning without an external keypad library
-- Green LED for successful authentication
-- Red LED for denied authentication
+- PIN-based authentication
+- 4×4 matrix keypad input
+- Red and green LED status indicators
 - Temporary lockout after three failed attempts
-- Serial Monitor authentication logs
-- Documented security limitations and testing scenarios
+- Serial Monitor output for authentication events
 
-## Circuit Connections
+## Components Used
 
-| Component | Arduino pin |
-|---|---|
-| Keypad R1–R4 | D2–D5 |
-| Keypad C1–C4 | D6–D9 |
-| Green LED | D10 |
-| Red LED | D11 |
+- Arduino Uno R3
+- 4×4 matrix keypad
+- Red LED
+- Green LED
+- 220 Ω resistors
+- Breadboard and jumper wires
 
-Each LED is connected in series with a 220 Ω resistor. The LED cathodes connect to GND.
+## Project Files
 
-The keypad column pins use the Arduino's internal pull-up resistors.
+- **Project Report:** Overview, implementation, testing, and security analysis.
+- **Arduino Firmware:** Source code for the authentication system.
+- **Circuit Schematic:** Diagram showing the circuit connections.
+- **3D Circuit View:** Visual representation of the simulated circuit.
 
-## How It Works
+## What I'm Learning
 
-1. The system initializes the keypad interface, LEDs, and Serial Monitor.
-2. The user enters a PIN using the keypad.
-3. Pressing `#` submits the PIN.
-4. Pressing `*` clears the current input.
-5. The firmware compares the entered PIN with the configured demonstration credential.
-6. Successful authentication activates the green LED.
-7. Failed authentication activates the red LED briefly.
-8. Three failed submissions trigger a ten-second software lockout.
+Through this project, I'm exploring:
 
-## Running the Project
+- Arduino programming with C/C++
+- Microcontroller input and output
+- Keypad interfacing and matrix scanning
+- Authentication and access-control logic
+- Basic security testing and software limitations
 
-1. Open the circuit in Tinkercad Circuits.
-2. Open the Arduino code editor in Text mode.
-3. Load `firmware/pin_authentication.ino`.
-4. Start the simulation.
-5. Open the Serial Monitor at 9600 baud.
-6. Test successful authentication, incorrect PINs, input clearing, and lockout behavior.
+## Room for Improvement
 
-## Security Analysis
+This is a beginner project, and there is plenty of room to improve it.
 
-This is an educational prototype, not a production-ready authentication system.
+Possible future enhancements include:
 
-Known limitations include:
+- Stronger authentication mechanisms
+- Better handling of repeated failed attempts
+- Secure credential management
+- Persistent authentication logs
+- Additional hardware security experiments
 
-- The demonstration PIN is hardcoded in firmware.
-- The lockout state is held in volatile memory and may be cleared by a reset.
-- The design does not implement cryptographic authentication.
-- Serial logs are not persistent or tamper-resistant.
-- Physical hardware attacks have not been evaluated.
+Suggestions, constructive feedback, and improvements are welcome. If you find a way to make this project more efficient, reliable, or secure, feel free to explore and build upon it.
 
-Future improvements include secure credential management, persistent failure tracking, cryptographic challenge-response authentication, and controlled firmware security testing.
+## Disclaimer
 
-## Testing
+This is an educational simulation, not a production-ready security system. The demonstration PIN is hardcoded in the firmware, and the lockout mechanism is implemented in software. The project has not been validated against physical hardware attacks.
 
-The test plan covers successful authentication, incorrect credentials, input clearing, and the three-attempt lockout.
+## A Note
 
-Test results should be recorded from actual simulator runs. The project is currently a simulated implementation; physical hardware validation has not been established.
+This is my first step into circuit simulation and hardware-oriented cybersecurity. I'm sharing the project as part of my learning journey, and I hope to improve it as I learn more.
 
-## Scope
-
-This project is intended for learning embedded programming, access-control logic, and cybersecurity fundamentals in a controlled environment.
-
+**Built to learn. Shared to improve.**
